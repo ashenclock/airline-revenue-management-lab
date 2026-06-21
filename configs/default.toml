@@ -1,0 +1,40 @@
+# === Airline Revenue Management Lab — Default Configuration ===
+
+[dataset]
+slug = "orvile/airline-market-fare-prediction-data"
+target_column = "Average_Fare"
+# Columns known to be pre-engineered frequency encodings (potential leakage)
+drop_columns = [
+    "OriginCityMarketID_freq",
+    "DestCityMarketID_freq",
+    "OriginAirportID_freq",
+    "DestAirportID_freq",
+    "Carrier_freq",
+    "ODPairID_freq",
+]
+
+[paths]
+raw = "data/raw"
+interim = "data/interim"
+processed = "data/processed"
+features = "data/features"
+reports = "data/reports"
+exports = "data/exports"
+metadata = "data/metadata"
+models = "models"
+
+[memory]
+limit_gb = 5.0
+chunk_size = 100_000
+
+[splitting]
+train_ratio = 0.70
+val_ratio = 0.15
+test_ratio = 0.15
+random_seed = 42
+
+[parallel]
+n_jobs = 2
+
+[logging]
+level = "INFO"

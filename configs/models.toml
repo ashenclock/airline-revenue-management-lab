@@ -1,0 +1,69 @@
+# === Model Hyperparameters ===
+
+[baseline]
+model_type = "ridge"   # "ridge" or "elasticnet"
+alpha = 1.0
+
+[xgboost]
+n_estimators = 1000
+max_depth = 6
+learning_rate = 0.05
+subsample = 0.8
+colsample_bytree = 0.8
+tree_method = "hist"
+early_stopping_rounds = 50
+eval_metric = "rmse"
+n_jobs = 2
+device = "cpu"
+
+[lightgbm]
+n_estimators = 1000
+max_depth = -1
+num_leaves = 63
+learning_rate = 0.05
+subsample = 0.8
+colsample_bytree = 0.8
+early_stopping_rounds = 50
+metric = "rmse"
+n_jobs = 2
+verbose = -1
+
+[catboost]
+iterations = 1000
+depth = 6
+learning_rate = 0.05
+early_stopping_rounds = 50
+eval_metric = "RMSE"
+verbose = 100
+task_type = "CPU"
+
+[lstm]
+hidden_dim = 64
+num_layers = 1
+dropout = 0.2
+bidirectional = true
+attention_type = "gated"  # "simple" or "gated"
+batch_size = 64
+learning_rate = 0.001
+epochs = 50
+patience = 10
+max_grad_norm = 1.0
+sequence_length = 10
+
+[transformer]
+d_model = 64
+nhead = 4
+num_encoder_layers = 2
+dim_feedforward = 128
+dropout = 0.1
+batch_size = 64
+learning_rate = 0.0005
+epochs = 50
+patience = 10
+max_grad_norm = 1.0
+sequence_length = 10
+
+[revenue]
+elasticity = -1.2
+price_scenarios = [-0.20, -0.10, -0.05, 0.0, 0.05, 0.10, 0.20]
+demand_column = "Pax"          # or "CarrierPax"

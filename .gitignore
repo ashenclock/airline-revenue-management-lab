@@ -1,0 +1,85 @@
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+*.egg
+dist/
+build/
+.eggs/
+
+# ===== Virtual environments =====
+.venv/
+venv/
+env/
+ENV/
+
+# ===== IDE =====
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ===== Environment =====
+.env
+.env.local
+.env.*.local
+
+# ===== Data (NEVER commit raw/processed data) =====
+data/raw/
+data/interim/
+data/processed/
+data/features/
+data/exports/
+data/reports/
+data/metadata/
+
+# ===== Model artifacts =====
+models/
+*.pkl
+*.joblib
+*.pt
+*.pth
+*.onnx
+*.cbm
+*.xgb
+*.lgb
+
+# ===== Notebooks checkpoints =====
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# ===== Logs =====
+logs/
+*.log
+
+# ===== Coverage =====
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+
+# ===== Mypy =====
+.mypy_cache/
+
+# ===== Ruff =====
+.ruff_cache/
+
+# ===== Pytest =====
+.pytest_cache/
+
+# ===== Poetry =====
+# Keep poetry.lock in version control for reproducibility
+# poetry.lock
+
+# ===== Misc =====
+*.csv
+*.parquet
+*.h5
+*.hdf5
+!configs/*.toml
+!configs/*.yaml
