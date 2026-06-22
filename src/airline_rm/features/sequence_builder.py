@@ -48,6 +48,7 @@ class RouteSequenceDataset(Dataset):
 
         for _key, group_df in groups:
             features = group_df.select(feature_cols).to_numpy().astype(np.float32)
+            features = np.nan_to_num(features, nan=0.0)
             target = group_df[target_col].mean()
 
             if target is None:

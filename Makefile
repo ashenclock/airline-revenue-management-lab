@@ -1,6 +1,7 @@
 .PHONY: help install lint format typecheck test test-cov clean download inspect build-parquet eda build-features train evaluate explain export-tableau dashboard
 
 SHELL := /bin/zsh
+export PATH := /Users/antonio/miniconda3/bin:$(PATH)
 PYTHON := poetry run python
 CLI := poetry run airline-rm
 
@@ -79,7 +80,6 @@ train-transformer: ## Train Transformer model
 train-all: ## Train all models sequentially
 	$(CLI) train --model baseline
 	$(CLI) train --model xgboost
-	$(CLI) train --model lightgbm
 	$(CLI) train --model catboost
 	$(CLI) train --model lstm_attention
 	$(CLI) train --model transformer

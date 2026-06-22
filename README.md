@@ -106,27 +106,17 @@ Download → Inspect → Clean → Parquet → Features → Train → Evaluate �
 ### Phase 1: Baselines
 
 | Model | MAE | RMSE | R² |
-|-------|-----|------|-----|
-| Global Mean | — | — | 0.0000 |
-| Route Mean | — | — | — |
-| Carrier Mean | — | — | — |
-| Ridge Regression | — | — | — |
-
-### Phase 2: Gradient-Boosted Trees
-
-| Model | MAE | RMSE | MAPE% | R² |
-|-------|-----|------|-------|-----|
-| **XGBoost** | — | — | — | — |
-| **LightGBM** | — | — | — | — |
-| **CatBoost** | — | — | — | — |
-
-### Phase 3: Deep Learning
-
-| Model | MAE | RMSE | R² | Params |
-|-------|-----|------|-----|--------|
-| LSTM + Attention | — | — | — | ~XXK |
-| LSTM + Gated Attention | — | — | — | ~XXK |
-| Transformer Encoder | — | — | — | ~XXK |
+### 📊 1. Quantitative Evaluation
+| Model               | MAE    | RMSE   | MAPE% | SMAPE% | R²     |
+|---------------------|--------|--------|-------|--------|--------|
+| **XGBoost**         | **1.68**| **3.01**| **0.83**| **0.83**| **0.9983**|
+| CatBoost            | 3.08   | 4.58   | 1.49  | 1.49   | 0.9961 |
+| Transformer         | 26.25  | 45.60  | 12.84 | 12.49  | 0.6996 |
+| LSTM w/ Attention   | 48.74  | 76.18  | 26.21 | 23.94  | 0.1616 |
+| Global Mean Base    | 53.35  | 72.87  | 27.48 | 24.00  | 0.0000 |
+| Carrier Mean Base   | 64.21  | 85.57  | 32.61 | 29.12  | -0.3787|
+| Route Mean Base     | 73.87  | 99.51  | 36.70 | 32.24  | -0.8647|
+| Ridge Baseline      | 76.54  | 102.31 | 38.06 | 34.10  | -0.9710|
 
 > 📝 Results will be filled after running the pipeline. Run `make train-all && make evaluate`.
 

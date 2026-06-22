@@ -31,16 +31,9 @@ def read_csv_chunked(
     """
     logger.info(f"Reading {path.name} in chunks of {chunk_size:,}")
 
-    reader = pl.read_csv_batched(path, batch_size=chunk_size)
-    batch_num = 0
-
-    while True:
+    batches = pl.scan_csv(path).collect_batches(chunk_size=chunk_size)
+    for batch_num, chunk in enumerate(batches, 1):
         check_memory_limit(memory_limit_gb, f"chunk {batch_num}")
-        batches = reader.next_batches(1)
-        if batches is None or len(batches) == 0:
-            break
-        batch_num += 1
-        chunk = batches[0]
         logger.debug(f"  Chunk {batch_num}: {len(chunk):,} rows")
         yield chunk
 

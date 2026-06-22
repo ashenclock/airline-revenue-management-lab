@@ -2,6 +2,12 @@
 
 from __future__ import annotations
 
+import os
+
+# CRITICAL: Set OMP_NUM_THREADS=1 before any imports to prevent
+# libomp segfault when torch and xgboost coexist on macOS.
+os.environ["OMP_NUM_THREADS"] = "1"
+
 import numpy as np
 import polars as pl
 import pytest
