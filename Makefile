@@ -2,8 +2,9 @@
 
 SHELL := /bin/zsh
 export PATH := /Users/antonio/miniconda3/bin:$(PATH)
-PYTHON := poetry run python
-CLI := poetry run airline-rm
+POETRY := /Users/antonio/miniconda3/bin/poetry
+PYTHON := $(POETRY) run python
+CLI := $(POETRY) run airline-rm
 
 help: ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | \
@@ -100,7 +101,7 @@ export-tableau: ## Export data for Tableau
 # === Dashboard ===
 
 dashboard: ## Launch Streamlit dashboard
-	poetry run streamlit run src/airline_rm/dashboard.py
+	$(POETRY) run streamlit run src/airline_rm/dashboard.py
 
 # === Cleanup ===
 
