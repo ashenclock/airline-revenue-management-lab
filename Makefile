@@ -1,10 +1,9 @@
 .PHONY: help install lint format typecheck test test-cov clean download inspect build-parquet eda build-features train evaluate explain export-tableau dashboard
 
-SHELL := /bin/zsh
-export PATH := /Users/antonio/miniconda3/bin:$(PATH)
-POETRY := /Users/antonio/miniconda3/bin/poetry
-PYTHON := $(POETRY) run python
-CLI := $(POETRY) run airline-rm
+SHELL := /bin/sh
+POETRY ?= poetry
+PYTHON ?= $(POETRY) run python
+CLI ?= $(POETRY) run airline-rm
 
 help: ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | \
